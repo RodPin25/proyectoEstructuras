@@ -154,6 +154,7 @@ body{
     border-radius: 10px;
     width: 50px;
     background-color: #cb1010;
+    cursor: pointer;
 }
 .labelQuest{
     margin: 0 0 1% 0;

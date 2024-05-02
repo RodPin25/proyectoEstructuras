@@ -37,14 +37,11 @@ btnQuest.addEventListener("click",function(){
         event.stopPropagation();
     })
 
-    var saveButton=document.getElementsById("saveButton");
     saveButton.addEventListener("click",function(){
         var nameQuest=document.getElementById("nameQuest").value;
         var descQuest=document.getElementById("descriptionQuest").value;
         var importante=document.getElementById("importance");
-        var noImportante=document.getElementsById("importance2");
-        if(importante.checked){
-            
-        }
+        var noImportante=document.getElementById("importance2");
+        
     });
 });
