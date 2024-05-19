@@ -38,7 +38,7 @@ btnQuest.addEventListener("click",function(){
     modal.style.display="block";
 
     var closeBtn=document.getElementById("btnClose");
-    closeBtn.addEventListener("click", function(){
+    closeBtn.addEventListener("click", function(event){
         modal.style.display="none";
         event.stopPropagation();
     })
@@ -105,16 +105,18 @@ inputDesc.addEventListener("keydown",function(){
 
 //Evento que controla cuando se vaya a cerrar la ventana
 window.addEventListener("beforeunload", function(){
+    saveData();
+});
+function saveData(){
     var datosIguardar=JSON.stringify(importantQuest);
     var datosNguardar=JSON.stringify(notImportantQuest);
     this.localStorage.setItem('divImportant',datosIguardar);
     this.localStorage.setItem('divNotImportant',datosNguardar);
-});
+}
 //Evento que controla cuando se vaya a cerrar la ventana
 
 //Evento que controla cuando se carga el documento
 document.addEventListener("DOMContentLoaded",function(event){
-    
     var arrayIRecovered=recoverArrayImportant();
     var arrayNRecovered=recoverArrayNotImportant();
 
@@ -124,6 +126,7 @@ document.addEventListener("DOMContentLoaded",function(event){
     arrayNRecovered.forEach(function(quest) {
         insertNotImportant(quest[0], quest[1]);
     });
+    checkQuestNotify();
     
 });
 //Evento que controla cuando se carga el documento
@@ -140,7 +143,7 @@ function cleanInputs(){
 function DivInsertImportant(nameQuest,descQuest){
     var questContainer=document.getElementById("important");
     importantDiv=document.createElement("div");
-    let strImportant=`<h1 class='titleQuestAdded'>${nameQuest}</h1><p class='textQuest'>${descQuest}</p>`;
+    let strImportant=`<h1 class='titleQuestAdded'>${nameQuest}</h1><p class='textQuest'>${descQuest}</p><button class='complete'>Completada</button>`;
     importantDiv.innerHTML=strImportant;
     questContainer.style.display="inline-block";
     importantDiv.classList.add("importante");
@@ -153,7 +156,7 @@ function DivInsertImportant(nameQuest,descQuest){
 function insertNotImportant(nameQuest,descQuest){
     var questContainerN=document.getElementById("notImportant");
     notImportantDiv=document.createElement("div");
-    let strImportant=`<h1 class='titleQuestAdded'>${nameQuest}</h1><p class='textQuest'>${descQuest}</p>`;
+    let strImportant=`<h1 class='titleQuestAdded'>${nameQuest}</h1><p class='textQuest'>${descQuest}</p><button class='complete'>Completada</button>`;
     notImportantDiv.innerHTML=strImportant;
     questContainerN.style.display="inline-block";
     notImportantDiv.classList.add("noImportante");
@@ -172,3 +175,66 @@ function recoverArrayNotImportant() {
     var parsedArrayN=JSON.parse(recoveredArrayN);
     return parsedArrayN;
 }
+
+
+function removeQuest(tasks, name){
+    console.log(tasks);
+    return tasks.filter(task=> task[0] != name);
+}
+
+var importantContainer=document.getElementById("important");
+importantContainer.addEventListener("click", function(event) {
+    if (event.target.classList.contains("complete")) {
+        event.target.parentElement.classList.add('bounce-out');
+        setTimeout(function(){
+            event.target.parentElement.remove();
+            removeQuest(notImportantQuest, event.target.parentElement.querySelector('titleQuestAdded').textContent);
+            saveData();
+        },1500);
+    }
+});
+var notImportantContainer=document.getElementById('notImportant');
+notImportantContainer.addEventListener("click", function(event) {
+    if (event.target.classList.contains("complete")) {
+        var taskElement = event.target.parentElement.querySelector('.titleQuestAdded');
+        if (taskElement) {
+            var taskTitle = taskElement.textContent;
+            event.target.parentElement.classList.add('bounce-out');
+            setTimeout(function() {
+                event.target.parentElement.remove();
+                removeQuest(notImportantQuest, taskTitle);
+                saveData();
+            }, 1500);
+        } else {
+            console.error("No se encontró ningún elemento con la clase 'titleQuestAdded'");
+        }
+    }
+});
+
+
+//Script para las notificaciones.
+function showNotification(title,options){
+    if(!("Notification" in Window)){
+        console.error("El navegador no soporta notificaciones");
+        return;
+    }
+    
+    if(Notification.permission=='granted'){
+        var notificacion=new Notification(title, options);
+    } else if(Notification.permission=='denied'){
+        Notification.requestPermission().then(function(permission){
+            if(permission=='granted'){
+                var notificacion=new Notification(title,options);
+            }
+        });
+    }
+}
+function checkQuestNotify(){
+    if(importantQuest.length>0){
+        showNotification('¡Aún tienes tareas pendientes!',{body: 'No te olvide de hacerlas.'});
+    } else if(notImportantQuest.length>0){
+        showNotification('Tienes tareas no importantes pendientes',{body: 'No te olvide de hacerlas.'});
+    }
+}
+var intervalo=2*60*60*1000;
+setInterval(checkQuestNotify,intervalo);
