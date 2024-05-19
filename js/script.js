@@ -178,7 +178,6 @@ function recoverArrayNotImportant() {
 
 
 function removeQuest(tasks, name){
-    console.log(tasks);
     return tasks.filter(task=> task[0] != name);
 }
 
@@ -188,7 +187,7 @@ importantContainer.addEventListener("click", function(event) {
         event.target.parentElement.classList.add('bounce-out');
         setTimeout(function(){
             event.target.parentElement.remove();
-            removeQuest(notImportantQuest, event.target.parentElement.querySelector('titleQuestAdded').textContent);
+            importantQuest=removeQuest(importantQuest, event.target.parentElement.querySelector('titleQuestAdded').textContent);
             saveData();
         },1500);
     }
@@ -202,7 +201,8 @@ notImportantContainer.addEventListener("click", function(event) {
             event.target.parentElement.classList.add('bounce-out');
             setTimeout(function() {
                 event.target.parentElement.remove();
-                removeQuest(notImportantQuest, taskTitle);
+                notImportantQuest=removeQuest(notImportantQuest, taskTitle);
+                console.log(notImportantQuest);
                 saveData();
             }, 1500);
         } else {
