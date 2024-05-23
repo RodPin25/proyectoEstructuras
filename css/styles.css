@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
     box-sizing: border-box;
     font-family: "Roboto";
 }
-body{
+body {
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,7 +12,7 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
 }
-.header{
+.header {
     padding: 0;
     display: flex;
     position: fixed;
@@ -19,32 +20,32 @@ body{
     width: 100%;
     align-items: center;
 }
-#btnMenu{
+#btnMenu {
     background-color: transparent;
-    margin: 0 1% 0 1%;
+    margin: 0 1%;
     border: 0;
 }
-#btnMenu:hover{
+#btnMenu:hover {
     background-color: #b8c2cc;
 }
-.titles{
+.titles {
     font-family: "Poppins", sans-serif;
 }
-@keyframes changeWidth{
-    from{
+@keyframes changeWidth {
+    from {
         width: 100%;
-    } to{
+    } to {
         width: 83%;
     }
 }
-@keyframes slideOutQuests{
+@keyframes slideOutQuests {
     from {
         left: 15%;
-    } to{
+    } to {
         left: 0;
     }
 }
-.body{
+.body {
     display: flex;
     overflow-y: scroll;
     border: 2px solid black;
@@ -52,13 +53,13 @@ body{
     width: 98%;
     position: absolute;
     top: 100px;
-    margin: 0 0.5% 0 1%;
+    margin: 0 0.5%;
     height: 87%;
     padding: 10px;
     transition: left 0.3s, width 0.3s ease;
     animation-duration: 0.3s;
 }
-.body.active{
+.body.active {
     animation-name: changeWidth;
     animation-duration: 0.4s;
     animation-timing-function: ease;
@@ -66,34 +67,33 @@ body{
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
-.body:not(.active){
+.body:not(.active) {
     animation-name: slideOutQuests;
 }
-.body::-webkit-scrollbar{
+.body::-webkit-scrollbar {
     width: 5px;
 }
-.body::-webkit-scrollbar-track:vertical{
+.body::-webkit-scrollbar-track:vertical {
     background: #bbb;
 }
-.body::-webkit-scrollbar-track:vertical:active{
+.body::-webkit-scrollbar-track:vertical:active {
     background: #ff5c7b;
 }
 @keyframes slideIn {
-    from{
+    from {
         left: -15%;
-    } to{
+    } to {
         left:0;
     }
 }
-
-@keyframes slideOut{
-    from{
+@keyframes slideOut {
+    from {
         left: 0;
-    } to{
+    } to {
         left: -15%;
     }
 }
-#sidebar{
+#sidebar {
     position: absolute;
     left: -15%;
     height: 100%;
@@ -102,27 +102,37 @@ body{
     transition: left 0.3s ease;
     animation-duration: 0.3s;
 }
-#sidebar:active{
+#sidebar:active {
     animation-name: slideIn;
 }
-
-#sidebar:not(.active){
+#sidebar:not(.active) {
     animation-name: slideOut;
 }
-.itemMenu{
+.itemMenu {
     background-color: transparent;
     border: 0;
     margin: 100px 0 0 10%;
     font-family: "Poppins", sans-serif;
-    font-size: 20px;
+    font-size: clamp(10px, 20px, 2rem);
     border-radius: 10px;
     width: 80%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 10px;
 }
-.itemMenu:hover{
+.itemMenu:hover {
     background-color: #b8c2cc;
+}
+.second {
+    margin-top: 1px;
+}
+.third {
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 500px;
+}
+.redo {
+    font-size: 50px;
 }
 #addQuest {
     border: 0;
@@ -131,11 +141,11 @@ body{
     height: 40px;
     width: 40px;
     position: absolute;
-    bottom: 10px; 
-    right: 10px; 
+    bottom: 10px;
+    right: 10px;
     cursor: pointer;
 }
-#modal{
+#modal {
     display: none;
     position: absolute;
     background-color: rgba(0,0,0,0.6);
@@ -143,7 +153,7 @@ body{
     width: 100%;
     z-index: 1;
 }
-#questBox{
+#questBox {
     background-color: #fff;
     position: absolute;
     top: 25%;
@@ -157,7 +167,7 @@ body{
     border-radius: 10px;
     height: auto;
 }
-#btnClose{
+#btnClose {
     float: left;
     border: 0;
     border-radius: 10px;
@@ -165,7 +175,7 @@ body{
     background-color: #cb1010;
     cursor: pointer;
 }
-.labelQuest{
+.labelQuest {
     margin: 0 0 1% 5%;
     font-size: 20px;
 }
@@ -175,21 +185,21 @@ input[type="text"] {
     box-shadow: 0 5px 10px #000;
     margin: 0 0 1% 5%;
     font-size: 15px;
-    font-family: "Poppins",sans-serif;
+    font-family: "Poppins", sans-serif;
     padding: 10px;
     width: 90%;
 }
-#radios{
+#radios {
     display: flex;
     flex-direction: row;
     margin: 1% 0 0 0;
     justify-content: space-evenly;
 }
-input[type="color"]{
-     border: 2px solid #EAEAEA;
+input[type="color"] {
+    border: 2px solid #EAEAEA;
     border-radius: 5px;
 }
-#saveButton{
+#saveButton {
     background-color: #4682B4;
     margin: 1% 0 0 0;
     border: 0;
@@ -197,13 +207,13 @@ input[type="color"]{
     height: 50px;
 }
 .material-symbols-outlined.save {
-  font-size: 30px;
+    font-size: 30px;
 }
-.questContainer{
+.questContainer {
     width: 100%;
 }
 #important,
-#notImportant{
+#notImportant {
     width: 100%;
 }
 .line {
@@ -232,7 +242,6 @@ input[type="color"]{
     opacity: 0;
     animation: fadeIn 0.3s ease forwards;
 }
-
 .noImportante {
     background-color: #e8e9c8;
     padding: 10px;
@@ -243,12 +252,11 @@ input[type="color"]{
     opacity: 0;
     animation: fadeIn 0.3s ease forwards;
 }
-
-.complete{
-    position:relative;
+.complete {
+    position: relative;
     left: 85%;
     bottom: 65px;
-    font-size: clamp(0.5rem,1.3vw,2rem);
+    font-size: clamp(0.8rem,1.3vw,2rem);
     font-family: "Poppins";
     font-weight: 700;
     border-radius: 10px;
@@ -258,11 +266,11 @@ input[type="color"]{
     cursor: pointer;
     transition: box-shadow 0.3s;
 }
-.complete:hover{
+.complete:hover {
     box-shadow: inset 1rem 3.2rem #cdffad;
 }
 @keyframes bounceOut {
-    20%{
+    20% {
         transform: translateY(-30px);
         opacity: 1;
     } 100% {
@@ -270,6 +278,176 @@ input[type="color"]{
         opacity: 0;
     }
 }
-.bounce-out{
+.bounce-out {
     animation: bounceOut 1.5s ease forwards;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .body {
+        top: 80px;
+        height: 85%;
+        width: 96%;
+        padding: 8px;
+    }
+
+    .itemMenu {
+        margin: 80px 0 0 8%;
+        font-size: clamp(10px, 18px, 1.5rem);
+        padding: 8px;
+    }
+
+    .complete {
+        font-size: clamp(0.7rem, 1.2vw, 1.8rem);
+        left: 80%;
+        bottom: 60px;
+        padding: 8px;
+    }
+
+    #questBox {
+        top: 20%;
+        left: 20%;
+        right: 20%;
+        bottom: 20%;
+        padding: 8px;
+    }
+
+    input[type="text"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .labelQuest {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+
+    #btnMenu {
+        margin: 0 0.5%;
+    }
+
+    .body {
+        top: 70px;
+        height: 80%;
+        width: 94%;
+        padding: 6px;
+    }
+
+    .itemMenu {
+        margin: 70px 0 0 6%;
+        font-size: clamp(8px, 16px, 1.3rem);
+        padding: 6px;
+    }
+
+    .complete {
+        font-size: clamp(0.6rem, 1vw, 1.5rem);
+        left: 75%;
+        bottom: 55px;
+        padding: 6px;
+    }
+
+    #questBox {
+        top: 15%;
+        left: 15%;
+        right: 15%;
+        bottom: 15%;
+        padding: 6px;
+    }
+
+    input[type="text"] {
+        font-size: 13px;
+        padding: 6px;
+    }
+
+    .labelQuest {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+    }
+
+    #btnMenu {
+        margin: 0 0.25%;
+    }
+
+    .body {
+        top: 60px;
+        height: 75%;
+        width: 92%;
+        padding: 4px;
+    }
+
+    .itemMenu {
+        margin: 60px 0 0 4%;
+        font-size: clamp(6px, 14px, 1rem);
+        padding: 4px;
+    }
+
+    .complete {
+        font-size: clamp(0.5rem, 0.8vw, 1.2rem);
+        left: 70%;
+        bottom: 50px;
+        padding: 4px;
+    }
+
+    #questBox {
+        top: 10%;
+        left: 10%;
+        right: 10%;
+        bottom: 10%;
+        padding: 4px;
+    }
+
+    input[type="text"] {
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    .labelQuest {
+        font-size: 14px;
+    }
+}
+
+/* Estilos para dispositivos móviles */
+.mobile-sidebar {
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.mobile-quests {
+    width: 100%;
+    left: 0;
+}
+
+/* Estilos para tabletas */
+.tablet-sidebar {
+    width: 80%;
+    position: absolute;
+    left: 0;
+}
+
+.tablet-quests {
+    width: 100%;
+    left: 0;
+}
+
+/* Estilos para escritorios */
+.desktop-sidebar {
+    width: 15%;
+    position: relative;
+    left: 0;
+}
+
+.desktop-quests {
+    width: 83%;
+    left: 15%;
 }

@@ -36,7 +36,6 @@ document.body.addEventListener("click", function(event) {
 //Evento que controla los clicks del boton para agregar tareas.
 btnQuest.addEventListener("click",function(){
     modal.style.display="block";
-
     var closeBtn=document.getElementById("btnClose");
     closeBtn.addEventListener("click", function(event){
         modal.style.display="none";
@@ -68,7 +67,7 @@ var inputDesc=document.getElementById("descriptionQuest");
 var importantQuest=new Array();
 var notImportantQuest=new Array();
 
-inputName.addEventListener("keydown",function(){
+inputName.addEventListener("keydown",function(event){
     let name=document.getElementById("nameQuest").value;
     let desco=document.getElementById("descriptionQuest").value;
     let importante=document.getElementById("importance");
@@ -83,7 +82,7 @@ inputName.addEventListener("keydown",function(){
         }
     }
 });
-inputDesc.addEventListener("keydown",function(){
+inputDesc.addEventListener("keydown",function(event){
     let name=document.getElementById("nameQuest").value;
     let desco=document.getElementById("descriptionQuest").value;
     let importante=document.getElementById("importance");
@@ -211,6 +210,24 @@ notImportantContainer.addEventListener("click", function(event) {
     }
 });
 
+var showImportant=document.getElementById('showImportant');
+var showNotImportant=document.getElementById('showNotImportant');
+var redoQuests=document.getElementById('redoButton');
+
+showImportant.addEventListener('click',function(event){
+    notImportantContainer.style.display='none';
+    importantContainer.style.display='block';
+    event.stopPropagation();
+});
+showNotImportant.addEventListener('click',function(event){
+    importantContainer.style.display='none';
+    notImportantContainer.style.display='block';
+    event.stopPropagation();
+});
+redoQuests.addEventListener('click',function(event){
+    importantContainer.style.display='block';
+    notmportantContainer.style.display='block';
+});
 
 //Script para las notificaciones.
 function showNotification(title,options){
