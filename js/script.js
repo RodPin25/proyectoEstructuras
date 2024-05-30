@@ -7,6 +7,22 @@ var modal = document.getElementById("modal");
 var btnQuest = document.getElementById("addQuest");
 var sideActive = false;
 
+function checkScreenSize() {
+    const minWidth = 768; // El ancho mínimo de pantalla en píxeles para redirigir
+    const currentWidth = window.innerWidth;
+
+    if (currentWidth < minWidth) {
+        // Redirigir a otra página si el ancho de pantalla es menor que el valor mínimo
+        window.location.href = "mobilePage.html";
+    }
+}
+
+// Llamar a la función al cargar la página
+window.addEventListener('load', checkScreenSize);
+
+// También puedes agregar un listener para detectar cambios en el tamaño de la ventana
+window.addEventListener('resize', checkScreenSize);
+
 // Evento que controla el sidebar
 btnMenu.addEventListener("click", function(event) {
     event.stopPropagation();
