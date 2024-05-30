@@ -300,9 +300,7 @@ function showNotification(title, options) {
     if (!("Notification" in window)) {
         console.error("El navegador no soporta notificaciones");
         return;
-    }
-
-    if (Notification.permission == 'granted') {
+    } else if (Notification.permission == 'granted') {
         var notificacion = new Notification(title, options);
     } else if (Notification.permission == 'denied') {
         Notification.requestPermission().then(function(permission) {
@@ -344,4 +342,4 @@ function checkQuestNotify() {
 }
 
 var intervalo = 2 * 60 * 60 * 1000;
-setInterval(checkQuestNotify(), 100);
+setInterval(checkQuestNotify(), intervalo);

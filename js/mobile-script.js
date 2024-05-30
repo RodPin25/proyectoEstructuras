@@ -34,6 +34,20 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.style.display = 'none';
     });
     recoverData();
+    if(importantQuest.length>0 || notImportantQuest.length>0){
+        if (!("Notification" in window)) {
+            console.error("El navegador no soporta notificaciones");
+            return;
+        } else if (Notification.permission === 'granted') {
+            iniciarIntervalo();
+        } else if (Notification.permission !== 'denied') {
+            Notification.requestPermission().then(function(permission) {
+                if (permission === 'granted') {
+                    iniciarIntervalo();
+                }
+            });
+        }
+    }
 });
 
 function saveQuest(name, desc, importance) {
@@ -193,3 +207,12 @@ function checkQuestNotify() {
 function removeQuest(tasks, name) {
     return tasks.filter(task => task[0] !== name);
 }
+function iniciarIntervalo() {
+    setInterval(function() {
+        mostrarNotificacion("Tienes tareas pendientes",{ body: 'No te olvides de hacerlas'});
+    }, 600000); // Notificación cada 5 segundos (ajusta el tiempo según tus necesidades)
+}
+function mostrarNotificacion(mensaje, body){
+    var notificacion= new Notification(mensaje, body);
+}
+
