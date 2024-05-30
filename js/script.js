@@ -10,18 +10,27 @@ var sideActive = false;
 function checkScreenSize() {
     const minWidth = 900; // El ancho mínimo de pantalla en píxeles para redirigir
     const currentWidth = window.innerWidth;
-
+    
+    console.log(`checkScreenSize called. currentWidth: ${currentWidth}, minWidth: ${minWidth}`);
+    
     if (currentWidth < minWidth) {
         // Redirigir a otra página si el ancho de pantalla es menor que el valor mínimo
+        console.log('Redirigiendo a mobilePage.html');
         window.location.href = "mobilePage.html";
     }
 }
 
 // Llamar a la función al cargar la página
-window.addEventListener('load', checkScreenSize());
+window.addEventListener('load', function() {
+    console.log('Evento load disparado');
+    checkScreenSize();
+});
 
 // También puedes agregar un listener para detectar cambios en el tamaño de la ventana
-window.addEventListener('resize', checkScreenSize());
+window.addEventListener('resize', function() {
+    console.log('Evento resize disparado');
+    checkScreenSize();
+});
 
 // Evento que controla el sidebar
 btnMenu.addEventListener("click", function(event) {
