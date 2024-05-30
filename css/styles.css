@@ -471,3 +471,41 @@ input[type="color"] {
     width: 83%;
     left: 15%;
 }
+
+.notification{
+    display: none;
+    position: absolute;
+    border-radius: 10px;
+    width: 25%;
+    border: 1px solid gray;
+    left: 75%;
+    top: 80%;
+    margin: 0 5% 0 0;
+    background-color: #f8b5af;
+    transition: left 0.3s ease;
+    animation-duration: 0.3 ease;
+    
+}
+
+@keyframes entryNoti{
+    from{
+        left: 110%;
+    } to{
+        left:80%;
+    }
+}
+@keyframes outNoti{
+    from{
+        left: 75%;
+    } to{
+        left: 110%;
+    }
+}
+.notification.active {
+    display: block;
+    animation-name: entryNoti; /* Animación de entrada */
+}
+
+.notification.not-active {
+    animation-name: outNoti; /* Animación de salida */
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/mobile-styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <section>
+        <div class="header">
+            <h1>To Do List</h1>
+            <button class="addQuest" id="adQuest"><span class="material-symbols-outlined">add</span></button>
+        </div>
+        <div class="topbar" id="topbar">
+            <button class="itemMenu" id="showImportant">
+                <span class="material-symbols-outlined">priority_high</span>
+                <label>Importante</label>
+            </button>
+            <button class="itemMenu" id="showNotImportant">
+                <span class="material-symbols-outlined">description</span>
+                <label>No importantes</label>
+            </button>
+            <button class="itemMenu" id="redoButton">
+                <span class="material-symbols-outlined redo">redo</span>
+                <label>Todas</label>
+            </button>
+        </div>
+    </section>
+    <section>
+        <div class="body">
+            <div class="questContainer">
+                <div id="importante">
+                    <h2>Importante</h2>
+                    <div class="line"></div>
+                </div>
+                <div id="notImportante">
+                    <h2>No Importante</h2>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal" id="moda">
+        <div class="questBox">
+            <button class="closeBtn" id="closeButton"><span class="material-symbols-outlined">close</span></button>
+            <h2 class="title">Añadir una nueva tarea</h2>
+            <label for="text1">Nombre de la tarea</label>
+            <input type="text" name="name" id="name" placeholder="Nombre">
+            <label for="text2">Descripcion de la tarea</label>
+            <input type="text" name="description" id="description" placeholder="Descripcion">
+            <div class="radioContainer">
+                <input type="radio" name="importance" id="important" value="important">
+                <label for="radio1" class="labels">Importante</label>
+                <input type="radio" name="importance" id="notImportant" value="notImportant">
+                <label for="radio2" class="labels">No importante</label>
+            </div>
+            <button id="saveButton"><span class="material-symbols-outlined">save</span><label for="saveBtn">Guardar</label></button>
+        </div>
+    </div>
+    <script src="js/mobile-script.js"></script>
+</body>
+</html>

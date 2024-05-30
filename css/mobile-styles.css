@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    background-color: #EAEAEA;
+    width: 100%;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    margin: 0;
+}
+
+.header h1 {
+    margin-left: 1%;
+    text-align: center;
+}
+
+.buttonMenu {
+    background-color: transparent;
+    border: 0;
+    margin: 0 1%;
+}
+
+.addQuest {
+    margin: auto 0 auto auto;
+    border: 0;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    height: 40px;
+    width: 40px;
+}
+
+.topbar {
+    background-color: #EAEAEA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: top 0.3s ease;
+}
+.itemMenu {
+    border: 0;
+    margin: 1%;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    background-color: transparent;
+    height: 60px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.itemMenu:hover {
+    box-shadow: inset 1rem 5rem #808080;
+    width: 80%;
+}
+
+.body {
+    margin-top: 1%;
+    margin-left: 1%;
+    border: 2px solid #000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    padding: 10px;
+}
+.line{
+    width: 100%;
+    border: 0;
+    height: 3px;
+    background-color: #000;
+    margin: 0;
+}
+@keyframes fadeIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    } to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.importante {
+    background-color: #bc0622;
+    padding: 10px;
+    margin: 1% 0 0 0;
+    border-radius: 10px;
+    border: 1px solid #000;
+    box-shadow: 0px 5px 5px #000;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+    font-size: clamp(0.4rem, 1.2vw, 2rem);
+}
+.noImportante {
+    background-color: #e8e9c8;
+    padding: 10px;
+    margin: 1% 0 0 0;
+    border-radius: 10px;
+    border: 1px solid #000;
+    box-shadow: 0px 5px 5px #000;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+}
+.modal{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.8);
+}
+.questBox{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+}
+.closeBtn{
+    width: 15%;
+    border: 0;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.5s ease;
+}
+.closeBtn:hover{
+    color: #cdd4d4;
+    box-shadow: inset 1rem 2rem #bc0622;
+}
+input[type=text]{
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.radioContainer{
+    display: flex;
+    justify-content: center;
+}
+.labels{
+    margin-right: 10%;
+}
+#saveButton{
+    background-color: #abfbfa;
+    margin-top: 1%;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+#saveButton:hover{
+    box-shadow: inset 1rem 5rem #07c6c9;
+}
+#importante{
+    display: flex;
+    flex-direction: column;
+}
+#notImportante{
+    display: flex;
+    flex-direction: column;
+
+}
+.important{
+    background-color: #bc0622;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px #000;
+    margin-top: 1%;
+    padding: 10px;
+    font-size: "Roboto";
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.important div{
+    width: 90%;
+    text-align: center;
+}
+.complete{
+    background-color: transparent;
+    height: 40%;
+    font-size: 15px;
+    font-family: "Roboto",sans-serif;
+    font-weight: 800;
+    border: 0;
+    border-radius: 10px;
+}
