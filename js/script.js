@@ -10,7 +10,7 @@ var sideActive=false;
 
 //Comienzo de los eventos que controlan al documento.
 //Evento que controla al sidebar
-btnMenu.addEventListener("click", function(event) {
+btnMenu.addEventListener("click", function() {
     event.stopPropagation(); // Detener la propagación del evento
     if (!sideActive) {
         sideActive = true;
@@ -29,7 +29,7 @@ btnMenu.addEventListener("click", function(event) {
 });
 //Evento que controla el sidebar
 //Evento que controla los clicks fuera del sidebar
-document.body.addEventListener("click", function(event) {
+document.body.addEventListener("click", function() {
     event.stopPropagation(); // Detener la propagación del evento
 });
 //Evento que controla los clicks fuera del sidebar
@@ -214,7 +214,7 @@ var showImportant=document.getElementById('showImportant');
 var showNotImportant=document.getElementById('showNotImportant');
 var redoQuests=document.getElementById('redoButton');
 
-showImportant.addEventListener('click',function(event){
+showImportant.addEventListener('click',function(){
     notImportantContainer.style.display='none';
     importantContainer.style.display='block';
     event.stopPropagation();

@@ -241,6 +241,7 @@ input[type="color"] {
     box-shadow: 0px 5px 5px #000;
     opacity: 0;
     animation: fadeIn 0.3s ease forwards;
+    font-size: clamp(0.4rem, 1.2vw, 2rem);
 }
 .noImportante {
     background-color: #e8e9c8;
@@ -325,6 +326,7 @@ input[type="color"] {
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
+        height: 100px;
     }
 
     #btnMenu {
@@ -333,22 +335,36 @@ input[type="color"] {
 
     .body {
         top: 70px;
-        height: 80%;
+        height: 100%;
         width: 94%;
         padding: 6px;
     }
 
     .itemMenu {
         margin: 70px 0 0 6%;
+        display: flex;
+        flex-direction: column;
         font-size: clamp(8px, 16px, 1.3rem);
         padding: 6px;
     }
 
+    .third{
+        margin-top: 300px;
+    }
     .complete {
         font-size: clamp(0.6rem, 1vw, 1.5rem);
         left: 75%;
         bottom: 55px;
         padding: 6px;
+    }
+
+    #sidebar{
+        font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        margin-top: 70px;
     }
 
     #questBox {
@@ -380,9 +396,14 @@ input[type="color"] {
 
     .body {
         top: 60px;
-        height: 75%;
+        height: 98%;
         width: 92%;
         padding: 4px;
+    }
+    .importante{
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
     }
 
     .itemMenu {
@@ -392,10 +413,9 @@ input[type="color"] {
     }
 
     .complete {
-        font-size: clamp(0.5rem, 0.8vw, 1.2rem);
-        left: 70%;
-        bottom: 50px;
-        padding: 4px;
+        font-size: 12px;
+        margin: auto;
+        position: static;
     }
 
     #questBox {
