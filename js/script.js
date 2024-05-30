@@ -8,7 +8,7 @@ var btnQuest = document.getElementById("addQuest");
 var sideActive = false;
 
 function checkScreenSize() {
-    const minWidth = 768; // El ancho mínimo de pantalla en píxeles para redirigir
+    const minWidth = 900; // El ancho mínimo de pantalla en píxeles para redirigir
     const currentWidth = window.innerWidth;
 
     if (currentWidth < minWidth) {
@@ -18,10 +18,10 @@ function checkScreenSize() {
 }
 
 // Llamar a la función al cargar la página
-window.addEventListener('load', checkScreenSize);
+window.addEventListener('load', checkScreenSize());
 
 // También puedes agregar un listener para detectar cambios en el tamaño de la ventana
-window.addEventListener('resize', checkScreenSize);
+window.addEventListener('resize', checkScreenSize());
 
 // Evento que controla el sidebar
 btnMenu.addEventListener("click", function(event) {
